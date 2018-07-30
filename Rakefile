@@ -44,7 +44,7 @@ task :cleanup do
 end
 
 desc 'Check style with Rubocop'
-Rubocop::RakeTask.new(:rubocop) do |task|
+RuboCop::RakeTask.new(:rubocop) do |task|
   task.patterns = ['lib']
   task.formatters = ['files']
   task.fail_on_error = true
@@ -53,7 +53,7 @@ end
 desc 'Run the specs'
 RSpec::Core::RakeTask.new(:test) do |t|
   t.pattern = './spec/examples/**/*_spec.rb'
-  t.rspec_opts = '--fail-fast'
+  t.rspec_opts = '-f d --fail-fast'
   t.fail_on_error = true
 end
 
